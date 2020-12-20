@@ -1,0 +1,23 @@
+[alias]
+	cs = commit --signoff
+	csm = commit --signoff -m
+[user]
+	name = Mauricio Robayo
+	email = rfmajo@gmail.com
+	signingkey = CB4E34E9A599AB1C
+[credential]
+	helper = store
+[includeIf "gitdir:~/Maestro/"]
+	path = ~/Maestro/.gitconfig-maestro
+[commit]
+	gpgsign = true
+[core]
+	editor = code --wait
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
