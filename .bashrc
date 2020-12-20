@@ -168,3 +168,6 @@ eval "$(zoxide init bash)"
 
 source /usr/share/doc/fzf/examples/completion.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fdfind --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
