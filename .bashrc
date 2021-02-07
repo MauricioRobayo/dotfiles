@@ -104,11 +104,3 @@ if [ -f '/home/rfmaj/google-cloud-sdk/path.bash.inc' ]; then . '/home/rfmaj/goog
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/rfmaj/google-cloud-sdk/completion.bash.inc' ]; then . '/home/rfmaj/google-cloud-sdk/completion.bash.inc'; fi
-
-eval "$(zoxide init bash)"
-
-source /usr/share/doc/fzf/examples/completion.bash
-source /usr/share/doc/fzf/examples/key-bindings.bash
-# Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fdfind --type f'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
