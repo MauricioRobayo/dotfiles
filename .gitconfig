@@ -1,6 +1,3 @@
-[alias]
-	cs = commit --signoff
-	csm = commit --signoff -m
 [user]
 	name = Mauricio Robayo
 	email = rfmajo@gmail.com
@@ -8,7 +5,7 @@
 [credential]
 	helper = store
 [includeIf "gitdir:~/Maestro/"]
-	path = ~/Maestro/.gitconfig-maestro
+	path = ~/Maestro/.gitconfig
 [commit]
 	gpgsign = true
 [core]
