@@ -58,12 +58,19 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_DESCRIBE_STYLE="default"
-exitstatus() {
-    [ $? -ne 0 ] && echo -e "\e[1;31mE!\e[0m"
+GIT_PS1_HIDE_IF_PWD_IGNORED=1
+__prompt_command() {
+    local EXIT="$?"
+    local ps1_pre=
+    local ps1_post=
+
+    if [ $EXIT -eq 0 ]; then
+      __git_ps1 '[\W]' '\$ ' '(%s)'
+    else
+      __git_ps1 '\[\033[1;31m\]E!\[\033[0m\][\W]' '\$ ' '(%s)'
+    fi
 }
-ps1_pre+='$(exitstatus)[\W]'
-ps1_post='\$ '
-PROMPT_COMMAND="__git_ps1 '${ps1_pre}' '${ps1_post}' '(%s)'"
+PROMPT_COMMAND="__prompt_command"
 
 export EDITOR=vim
 
