@@ -61,9 +61,6 @@ GIT_PS1_DESCRIBE_STYLE="default"
 GIT_PS1_HIDE_IF_PWD_IGNORED=1
 __prompt_command() {
     local EXIT="$?"
-    local ps1_pre=
-    local ps1_post=
-
     if [ $EXIT -eq 0 ]; then
       __git_ps1 '[\W]' '\$ ' '(%s)'
     else
@@ -98,6 +95,14 @@ __fnmcd() {
 
 alias cd=__fnmcd
 __fnm_use_if_file_found
+
+eval "$(zoxide init bash)"	
+
+source /usr/share/doc/fzf/examples/completion.bash	
+source /usr/share/doc/fzf/examples/key-bindings.bash	
+# Setting fd as the default source for fzf	
+export FZF_DEFAULT_COMMAND='fdfind --type f'	
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/rfmaj/google-cloud-sdk/path.bash.inc' ]; then . '/home/rfmaj/google-cloud-sdk/path.bash.inc'; fi
