@@ -62,9 +62,9 @@ GIT_PS1_HIDE_IF_PWD_IGNORED=1
 __prompt_command() {
     local EXIT="$?"
     if [ $EXIT -eq 0 ]; then
-      __git_ps1 '[\W]' '\$ ' '(%s)'
+      __git_ps1 '\[\e]0;\W\a\][\W]' '\$ ' '(%s)'
     else
-      __git_ps1 '\[\033[1;31m\]E!\[\033[0m\][\W]' '\$ ' '(%s)'
+      __git_ps1 '\[\e]0;\W\a\]\[\033[1;31m\]E!\[\033[0m\][\W]' '\$ ' '(%s)'
     fi
 }
 PROMPT_COMMAND="__prompt_command"
@@ -109,3 +109,7 @@ if [ -f '/home/rfmaj/google-cloud-sdk/path.bash.inc' ]; then . '/home/rfmaj/goog
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/rfmaj/google-cloud-sdk/completion.bash.inc' ]; then . '/home/rfmaj/google-cloud-sdk/completion.bash.inc'; fi
+
+settitle () {
+  echo -ne '\033]0;'"$1"'\a'
+}
