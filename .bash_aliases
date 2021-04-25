@@ -19,3 +19,5 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+alias ytmp3='youtube-dl --continue --ignore-errors --no-overwrites --no-post-overwrites --extract-audio --audio-format mp3 --id --download-archive downloaded --batch-file urls'
+
